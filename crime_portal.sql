@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2023 at 01:08 PM
+-- Generation Time: Nov 09, 2023 at 02:16 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -92,7 +92,8 @@ ALTER TABLE `citizen`
 --
 ALTER TABLE `complaint`
   ADD PRIMARY KEY (`complain_id`),
-  ADD KEY `complainant_id` (`complainant_id`);
+  ADD KEY `complainant_id` (`complainant_id`),
+  ADD KEY `location` (`location`);
 
 --
 -- Indexes for table `police`
@@ -106,7 +107,8 @@ ALTER TABLE `police`
 -- Indexes for table `police_station`
 --
 ALTER TABLE `police_station`
-  ADD PRIMARY KEY (`station_id`,`location`);
+  ADD PRIMARY KEY (`station_id`,`location`),
+  ADD KEY `location` (`location`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -152,6 +154,12 @@ ALTER TABLE `complaint`
 ALTER TABLE `police`
   ADD CONSTRAINT `police_ibfk_1` FOREIGN KEY (`works_on`) REFERENCES `complaint` (`complain_id`),
   ADD CONSTRAINT `police_ibfk_2` FOREIGN KEY (`works_for`) REFERENCES `police_station` (`station_id`);
+
+--
+-- Constraints for table `police_station`
+--
+ALTER TABLE `police_station`
+  ADD CONSTRAINT `police_station_ibfk_1` FOREIGN KEY (`location`) REFERENCES `complaint` (`location`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
