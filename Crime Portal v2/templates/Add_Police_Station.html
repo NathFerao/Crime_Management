@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Police Station</title>
+    <style>
+        /* Add your CSS styles here */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+        }
+        .back-button {
+            float: left;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a class="back-button" href="javascript:history.go(-1)">Back</a>
+        <a href="Police_Stations.html">Headquarters</a>
+        <a href="Police_station_Employees.html">Police Officers</a>
+        <a href="#">Headquarters</a>
+    </div>
+
+    <h1>Add Police Station</h1>
+
+    <form method="POST" action="process_station_form.php"> <!-- Update 'process_station_form.php' with your server-side script -->
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <center><button type="submit">Submit</button></center>
+    </form>
+</body>
+</html>
